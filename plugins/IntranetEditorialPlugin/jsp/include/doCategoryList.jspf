@@ -1,0 +1,15 @@
+<% if (Util.notEmpty(categories)) { %>
+  <% 
+  int maxDefaultCategoriesCount = 25;
+  String refresh = Util.toBoolean(request.getAttribute("query.facets.ajax"),false) ? "ajax-refresh" : "";
+  PortalInterface categorySearchPortal = getDataParameter("portal", PortalInterface.class);  
+  %>
+  <jalios:icon src="category" title="ui.com.lbl.categories" />
+  <% boolean showCategoryToggler = categories.length > maxDefaultCategoriesCount; %>
+  <jalios:foreach array="<%= categories %>" name="cat" type="Category" counter="itCatCounter">
+  <a class="meta-cat<%= itCatCounter > maxDefaultCategoriesCount ? " hide meta-category-toggler" : "" %><%= refresh %>" href="<%= ResourceHelper.getQuery() %>?motCle=<%= cat.getId() %><%= "&amp;types=" + type %><%= categorySearchPortal != null ? "&amp;portal="+categorySearchPortal.getId() : "" %>"><%= cat.getName(userLang) %></a>
+  </jalios:foreach> 
+  <% if (showCategoryToggler) { %>
+  <a href="#" title="<%= glp("ui.com.lbl.metadata.show-all-cat") %>" class="meta-cat meta-category-toggler" data-jalios-action="toggle:hide" data-jalios-target=".meta-category-toggler" onclick="return false;">&hellip;</a>
+  <% } %>
+<% } %>

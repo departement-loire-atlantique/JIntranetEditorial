@@ -1,0 +1,147 @@
+<%
+String color = currentCategory.getAvailableColor();
+%>
+
+<!-- Liste de contacts -->
+<%@ include file="encadreContacts.jspf" %>
+    
+            
+<!-- Liste de documents -->
+<jalios:if predicate="<%= Util.notEmpty(pub.getTitreListeDeDocuments()) && Util.notEmpty(pub.getListeDeDocuments())  %>">
+    <section class="titleBorderSkin">
+      <div class='skinHeader'>
+        <%-- Affichage du titre --%>
+        <h1><%= pub.getTitreListeDeDocuments() %> <jalios:edit id="<%= pub.getId() %>" fields="titreListeDeDocuments ; listeDeDocuments" />                   </h1>                      
+      </div>                      
+      <%-- Filet haut --%>
+      <div class="yellow-border" style="background-color: <%= color %>"></div>                   
+      <div class="skinContent">
+        <div class="pqf-simple-list">
+           <ul class="item-box-list item-box-simple-list">
+              <jalios:foreach name="itDoc" array="<%= pub.getListeDeDocuments() %>" type="FileDocument">                                 
+                 <jalios:if predicate="<%= Util.notEmpty(itDoc) %>">                                 
+                     <li class="item-list item-simple-list">                                        
+                        <div class="icon">
+                          <jalios:dataicon data="<%= itDoc %>" /> 
+                        </div>                                  
+                        <div class="info">                                  
+                          <div class="titre">
+                              <jalios:link data="<%= itDoc %>" />
+                          </div>                                                                            
+                          <p class="sub-info">
+                              <%-- Date --%>                                          
+                              <jalios:date format="dd/MM/yyyy" date="<%= itDoc.getMdate() %>" />                                             
+                              <%-- Poids du document --%>
+                              - <span class="filesize"><jalios:filesize doc="<%= itDoc %>" /></span>                                                                              
+                          </p>                                                                                                                  
+                        </div>                                      
+                     </li>                               
+                 </jalios:if>                                
+              </jalios:foreach>
+           </ul>                        
+        </div>
+      </div>                      
+      <%-- Liseré bas --%>     
+      <div class="separateur"></div>                                          
+    </section>                              
+</jalios:if>
+
+
+<!-- Liste de liens -->
+<jalios:if predicate="<%= Util.notEmpty(pub.getTitreListeDeLiens()) && (Util.notEmpty(pub.getLienInterne()) || Util.notEmpty(pub.getLienLibre())) %>">
+    <section class="titleBorderSkin">
+      <div class='skinHeader'>
+        <%-- Affichage du titre --%>
+        <h1><%= pub.getTitreListeDeLiens()  %>     <jalios:edit id="<%= pub.getId() %>" fields="titreListeDeLiens ; libelleLienInterne ; lienInterne ; libelleLienLibre ; lienLibre" /> </h1>
+      </div>
+      <%-- Filet haut --%>
+      <div class="blue-border" style="background-color: <%= color %>"></div>                     
+      <div class="skinContent">
+        <div class="pqf-simple-list">                                            
+          <ul class="item-box-list item-box-simple-list">                                                                                  
+            <!-- Liens internes -->
+            <jalios:if predicate="<%= Util.notEmpty(pub.getLienInterne()) %>">                                            
+                <% int index = 0; %>
+                    <jalios:foreach name="itData" type="com.jalios.jcms.Content" array="<%= pub.getLienInterne() %>">
+                        <% String libelle = ""; %>
+                        <jalios:if predicate='<%= itData != null && itData.canBeReadBy(loggedMember) %>'>
+                            <jalios:if predicate='<%= pub.getLibelleLienInterne().length > index %>'>
+                                <% libelle = pub.getLibelleLienInterne()[index]; %>
+                            </jalios:if>
+                             <li class="item-list item-simple-list">                                         
+                                <div class="icon">
+                                   <jalios:dataicon data="<%= itData %>" /> 
+                                </div>                                  
+                                <div class="info"> 
+                                   <div class="titre">                                       
+                                       <a href="<jalios:url data='<%= itData %>' />"><%= Util.notEmpty(libelle) ? libelle : itData %></a>
+                                   </div>
+                                </div>
+                            </li>
+                        </jalios:if>
+                        <% index++; %>
+                    </jalios:foreach>                                         
+            </jalios:if>
+            
+            
+            <!-- Liens libres -->
+            <jalios:if predicate="<%= Util.notEmpty(pub.getLienLibre()) %>">            
+                <% int index = 0; %>
+                <jalios:foreach name="urlLien" type="String" array="<%= pub.getLienLibre() %>">
+                    <%
+                    String libelle = "";
+                    String target = "_self";
+                    %>
+                    <jalios:if predicate='<%= Util.notEmpty(urlLien) %>'>
+                    	<jalios:if predicate='<%= Util.notEmpty(pub.getLibelleLienLibre()) %>'>
+	                        <jalios:if predicate='<%= pub.getLibelleLienLibre().length > index %>'>
+	                            <% libelle = pub.getLibelleLienLibre()[index]; %>
+	                        </jalios:if>
+	                        <jalios:if predicate='<%= ! urlLien.startsWith(channel.getUrl())%>'>
+	                            <% target = "_blank";%>
+	                        </jalios:if>
+                        </jalios:if>
+                        <li class="item-list item-simple-list">                                         
+                            <div class="icon">
+                               <jalios:icon src='<%= "plugins/IntranetVisualIdentityPlugin/images/icon/lien_externe.png" %>' /> 
+                            </div>                                  
+                            <div class="info"> 
+                               <div class="titre">                                      
+                                 <a href='<%= urlLien %>' target='<%= target %>'><%= Util.notEmpty(libelle) ? libelle : urlLien %></a>
+                               </div>
+                            </div>                                          
+                        </li>
+                    </jalios:if>
+                    <% index++; %>
+                </jalios:foreach>           
+            </jalios:if>                                                        
+          </ul> 
+                                  
+        </div>
+      </div> 
+      <%-- Liseré bas --%>     
+      <div class="separateur"></div>                                                               
+    </section>
+</jalios:if>   
+    
+                           
+<!-- Liste de texte -->
+<jalios:if predicate="<%= Util.notEmpty(pub.getTitreTexteDeLencadre()) && Util.notEmpty(pub.getTexteEncart()) %>">
+    <section class="titleBorderSkin">
+      <div class='skinHeader'>
+        <%-- Affichage du titre --%>
+        <h1><%= pub.getTitreTexteDeLencadre()  %>     <jalios:edit id="<%= pub.getId() %>" fields="titreTexteDeLencadre ; texteEncart" /> </h1>                      
+      </div>
+      <%-- Filet haut --%>
+      <div class="blue-border" style="background-color: <%= color %>"></div>                                          
+      <div class="skinContent itText">
+        <jalios:foreach name="itText" array="<%= pub.getTexteEncart() %>" type="String">
+            <div>
+                <jalios:wysiwyg><%= itText %></jalios:wysiwyg>  
+            </div>      
+        </jalios:foreach>
+      </div>                      
+      <%-- Liseré bas --%>     
+      <div class="separateur"></div>                      
+    </section>                  
+</jalios:if>

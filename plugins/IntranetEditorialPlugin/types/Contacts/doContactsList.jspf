@@ -1,0 +1,18 @@
+ 
+<%-- GROUPES --%>
+<jalios:if predicate="<%= Util.notEmpty(obj.getGroupes()) %>">
+  <jalios:foreach array="<%= obj.getGroupes() %>" name="itGroup" type="Group">
+    <jalios:if predicate="<%= Util.notEmpty(itGroup) %>">     
+      <%@ include file="doContactItemGroupBoxListItem.jspf" %>                
+    </jalios:if>
+  </jalios:foreach>
+</jalios:if>
+
+<%-- MEMBRES --%>
+<jalios:if predicate="<%= Util.notEmpty(obj.getMembres()) %>">
+  <jalios:foreach array="<%= obj.getMembres() %>" name="itMember" type="Member">
+    <jalios:if predicate="<%= Util.notEmpty(itMember) %>">
+       <%@ include file="doContactItemBoxListItem.jspf" %>
+    </jalios:if>
+  </jalios:foreach>
+</jalios:if>

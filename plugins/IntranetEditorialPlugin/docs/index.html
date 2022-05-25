@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>IntranetEditorialPlugin Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/jalios/pluginDoc.css" type="text/css" />
+  </head>
+  <body>
+  
+
+  <h1 style="text-align: center">IntranetEditorialPlugin Documentation</h1>
+  
+  <h2>Sommaire</h2>
+  <table><tr><td>
+    <ol>
+	    <li><a href="#Introduction">Introduction</a></li>
+	    <li><a href="#Installation">Installation</a></li>
+	    <li><a href="#FonctionnalitesPortail">Fonctionnalités de Portail</a>
+	    	<ol>
+	    		<li><a href="#PortailFull">Résolution de portail pour les contenus forcés sur un portail spécifique</a></li>
+	    		<li><a href="#MisEnAvant">Contenu mis en avant dans un portail spécifique grâce à une catégorie</a></li>
+	    	</ol>
+	    </li>
+	    <li><a href="#FonctionnalitesRecherche">Fonctionnalités de Recherche</a>
+	    	<ol>
+	    		<li><a href="#RechercheCat">Gabarit de recherche avec résultat vers une catégorie</a></li>
+	    		<li><a href="#RechercheFacettes">Portlet Recherche Facette</a></li>
+	    	</ol>
+	    </li>
+    </ol>
+  </td></tr></table>
+  
+  <a name="Introduction"></a>
+  <h2>Introduction</h2>
+  <p>Ce module ajoute des types de contenu et comportements spécifiquent pour la partie éditoriale de l'intranet.</p>
+  
+  <a name="Installation"></a>
+  <h2>Installation</h2>
+  <p>L'installation du module s'effectue en suivant la procédure standard d'installation de module de JCMS.</p> 
+	
+  <a name="FonctionnalitesPortail"></a>
+  <h2>Fonctionnalités de portail</h2>
+  <p>Description des fonctionnalités liées aux portails</p> 
+	
+  <a name="PortailFull"></a>
+  <h3>Résolution de portail pour les contenus forcés sur un portail spécifique</h3>
+  <p>Permet pour certains types de contenu définis en configuration du module (jcmsplugin.intraneteditorial.fulldisplay.type) de s'afficher dans un portail spécifique prévu à cet effet défini en BO ($id.jcmsplugin.intraneteditorial.fulldisplay.portal) </p>
+ 
+  <a name="MisEnAvant"></a>
+  <h3>Contenu mis en avant dans un portail spécifique grâce à une catégorie</h3>
+  <p>Permet d'afficher la publication mise en avant dans le portail spécifique défini en BO ($id.jcmsplugin.intraneteditorial.fulldisplay.portal). Pour cela il faut que le contenu soit catégorisé dans une catégorie technique définie en BO ($id.jcmsplugin.intraneteditorial.publication.section.categories) et dans une des catégorie enfant de la navigation de section ($id.jcmsplugin.intraneteditorial.root.section.categories)<p>
+  <p>Un seul contenu peut être mis en avant par catégorie de section. Un dataController (PublicationDataController) limite à un seul contenu mis en avant par catégorie de section mis en avant</p>
+  <p>Si il existe une redirection avec les droits sur le loggedMember alors celle-ci est prioritaire sur l'affichage du contenu "mis en avant".<p>
+  <p>De la même façon si il existe un portail sur la catgorie courante alors le portail est gardé lors de l'affichage du contenu "mis en avant"</p>
+	
+  <a name="FonctionnalitesRecherche"></a>
+  <h2>Fonctionnalités de recherche</h2>
+  <p>Description liées aux fonctions de recherche</p>
+  
+  <a name="RechercheCat"></a>
+  <h3>Gabarit de recherche avec résultat vers une catégorie</h3>
+  <p>Le gabarit "Recherche avec lien vers facette" de la portlet Recherche permet de rediriger le résultat de recherche vers une catégorie. Pour cela il faut catégoriser la portlet recherche dans la catégorie souhaitée.</p>
+  
+   <a name="RechercheFacettes"></a>
+   <h3>Recherche à facettes</h3>
+   <p>La portlet Recherche Facette permet de créer un recherche avec différent critères de recherche sous forme de facette pour l'utilisateur :</p>
+   <ul>
+   	<li>Un champs spécifique pour la recherche texte (celui-ci doit être indéxé)</li>
+   	<li>Les racines de catégories de recherche disponibles</li>
+   	<li>Rechercher par date de publication</li>
+   	<li>Rechercher par mois de publication et le nombre de mois proposé à l'utilisateur</li>
+   </ul>
+   <p>La portlet permet aussi d'indiquer si la recherche sur les catégories est de type union ou intersection, l'option affiner les catégories sur la requête permet de n'afficher dans la facette catégorie seulement les catégories où il y a au moins un contenu qui correspond à la requête de la recherche. Il faut aussi choisir l'ordre des facettes pour que celle-ci s'affiche.</p>
+  
+  </body>
+</html>

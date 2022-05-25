@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plugin PUBLIC "-//JALIOS//DTD JCMS-PLUGIN 1.6//EN" "http://jade/jcms/dtd/jcms-plugin-1.6.dtd">
+<plugin name="IntranetEditorialPlugin" version="0.1" author="CG44" license="CG44" initialize="true" jcms="" order="0" url="" jsync="true" appserver="">
+<!-- test -->
+  <label xml:lang="fr">Editorial</label>
+  <description xml:lang="fr">Types de contenu liés à l’éditorial (brèves, articles, avis de vacances de postes, …) + gabarits full, query, bloc, result, embed&#xD;
+Brèves + article + full policy filter.</description>
+
+ 
+  <types>
+    <type name="Alerte" />
+    <type name="Article" />
+    <type name="AVP"/>
+    <type name="AVPImport"/>
+    <type name="Carte" />
+    <type name="Contacts" />
+    <type name="ContenuLibre" />
+    <type name="Depeches" />
+    <type name="DocumentAvecVignette" />
+    <type name="FicheFormation" />
+    <type name="FicheMetier" />
+    <type name="Focus" />   
+    <type name="Incident" />
+    <type name="Information" />
+    <type name="InterventionPlanifiee" />    
+    <type name="PublicationCG" />
+    <type name="SmallNews" />
+      
+    <templates type="Article">
+  	   <template name="default" usage="full" file="doArticleFullDisplay.jsp">
+	     <label xml:lang="fr">Gabarit full</label>
+	   </template>
+	   <template name="embed" usage="full" file="doArticleEmbedDisplay.jsp">
+	     <label xml:lang="fr">Gabarit intégré</label>
+	   </template>
+	</templates>
+	
+	<templates type="FicheFormation">
+       <template name="default" usage="full" file="doFicheFormationFullDisplay.jsp">
+         <label xml:lang="fr">Gabarit full</label>
+       </template>
+    </templates>
+    
+	<templates type="FicheMetier">
+       <template name="default" usage="full" file="doFicheMetierFullDisplay.jsp">
+         <label xml:lang="fr">Gabarit full</label>
+       </template>
+    </templates>    
+	
+	<templates type="Contacts">
+  	   <template name="default" usage="full" file="doContactsFullDisplay.jsp">
+	     <label xml:lang="fr">Gabarit full</label>
+	   </template>
+	   <!--
+	   <template name="default" usage="query" file="doContactsQueryDisplay.jsp">
+	     <label xml:lang="fr">Gabarit full</label>
+	   </template>
+	   -->
+	</templates>
+	
+	<templates type="AVP">
+  	   <template name="default" usage="full" file="doAVPFullDisplay.jsp">
+	     <label xml:lang="fr">Gabarit full</label>
+	   </template>
+	   <!--
+	   <template name="default" usage="query" file="doAVPResultDisplay.jsp">
+	     <label xml:lang="fr">Gabarit result</label>
+	   </template>
+	   -->
+	</templates>
+	
+	<templates type="AVPImport">
+  	   <template name="default" usage="full" file="doAVPImportFullDisplay.jsp">
+	     <label xml:lang="fr">Gabarit full</label>
+	   </template>
+	</templates>	
+	
+	<templates type="Carte">
+	   <template name="default" usage="full" file="doCarteFullDisplay.jsp">
+         <label xml:lang="fr">Gabarit full</label>
+       </template>
+       <!--
+       <template name="default" usage="query" file="doCarteResultDisplay.jsp">
+         <label xml:lang="fr">Gabarit result</label>
+       </template>
+       -->
+	</templates>
+	
+	<templates type="ContenuLibre">
+       <template name="default" usage="full" file="doContenuLibreFullDisplay.jsp">
+         <label xml:lang="fr">Gabarit full</label>
+       </template>
+    </templates>
+	
+	<templates type="PublicationCG">
+	   <template name="default" usage="full" file="doPublicationCGFullDisplay.jsp">
+	     <label xml:lang="fr">Gabarit full</label>
+	   </template>
+	   <template name="contactsBas" usage="full" file="doPublicationCGContactsBasFullDisplay.jsp">
+	     <label xml:lang="fr">Gabarit full avec contacts en bas</label>
+	   </template>	   
+	   <!--
+  	   <template name="default" usage="query" file="doPublicationCGResultDisplay.jsp">
+	     <label xml:lang="fr">Gabarit result</label>
+	   </template>
+	   -->
+	</templates>
+	
+	<templates type="SmallNews">
+  	   <template name="default" file="doSmallNewsFullDisplay.jsp" usage='full'>
+	     <label xml:lang="fr">Gabarit full</label>
+	   </template>
+	</templates>  
+	
+	<templates type="Focus">
+       <template name="default" file="doFocusFullDisplay.jsp" usage='full'>
+         <label xml:lang="fr">Gabarit full</label>
+       </template>
+       <template name="default" file="doFocusFullDisplay.jsp" usage='query'>
+         <label xml:lang="fr">Gabarit query</label>
+       </template>
+    </templates>  
+    
+    <templates type="PortletNavigate"> 
+      <template name="menuWelcomeSection" file="menuWelcomeSection.jsp" usage="box">
+        <label xml:lang="en">Menu in the welcome of the section</label>
+        <label xml:lang="fr">* Menu d'accueil d'une rubrique</label>
+      </template>
+    </templates>
+                
+    <templates type="PortletQueryForeach">
+      <template name="avp" file="avp.jsp" usage='box'>
+        <label xml:lang="fr">* Liste avis de vacance poste</label>
+      </template>
+      <template name="avp" file="avp.jsp" usage='full'>
+        <label xml:lang="fr">* Liste avis de vacance poste</label>
+      </template>
+      <template name="avpImport" file="avpImport.jsp" usage='box'>
+        <label xml:lang="fr">* Liste avis de vacance poste importés</label>
+      </template>
+      <template name="avpImport" file="avpImport.jsp" usage='full'>
+        <label xml:lang="fr">* Liste avis de vacance poste importés</label>
+      </template>      
+      <template name="breves" file="breves.jsp" usage='box'>
+        <label xml:lang="fr">* Liste courte de Brèves</label>
+      </template>
+      <template name="breves" file="breves.jsp" usage='full'>
+        <label xml:lang="fr">* Liste courte de Brèves</label>
+      </template>
+      <template name="contacts" file="contacts.jsp" usage='box'>
+        <label xml:lang="fr">* Liste de Contacts</label>
+      </template>  
+      <template name="contacts" file="contacts.jsp" usage='full'>
+        <label xml:lang="fr">* Liste de Contacts</label>
+      </template> 
+      <!--    
+      <template name="focus" file="focus.jsp" usage='box'>
+        <label xml:lang="fr">Gabarit focus</label>
+      </template>
+      <template name="focus" file="focus.jsp" usage='full'>
+        <label xml:lang="fr">Gabarit focus</label>
+      </template>
+      -->
+      <template name="documentVignette" file="documentVignette.jsp" usage='box'>
+        <label xml:lang="fr">* Liste de documents vignette</label>
+      </template>
+      <template name="documentVignette" file="documentVignette.jsp" usage='full'>
+        <label xml:lang="fr">* Liste de documents vignette</label>
+      </template>
+      <template name="ficheMetier" file="ficheMetier.jsp" usage='box'>
+        <label xml:lang="fr">* Liste de fiche métiers</label>
+      </template>
+      <template name="ficheMetier" file="ficheMetier.jsp" usage='full'>
+        <label xml:lang="fr">* Liste de fiche métiers</label>
+      </template>
+      <template name="contenuLibre" file="contenuLibre.jsp" usage='box'>
+        <label xml:lang="fr">* Affichage du champ contenu uniquement </label>
+      </template>
+      <template name="contenuLibre" file="contenuLibre.jsp" usage='full'>
+        <label xml:lang="fr">* Affichage du champ contenu uniquement </label>
+      </template>
+      <template name="formation" file="formation.jsp" usage='box'>
+        <label xml:lang="fr">* Liste de formations</label>
+      </template>  
+      <template name="formation" file="formation.jsp" usage='full'>
+        <label xml:lang="fr">* Liste de formations</label>
+      </template>      
+      <template name="publicationCG" file="publicationCG.jsp" usage='box'>
+        <label xml:lang="fr">* Liste de publication du departement</label>
+      </template>  
+      <template name="publicationCG" file="publicationCG.jsp" usage='full'>
+        <label xml:lang="fr">* Liste de publication du departement</label>
+      </template>
+    </templates>
+        
+    <templates type="PortletSearch">
+      <template name="defaut" file="doPortletFacetLinkSearchFullDisplay.jsp" usage='box'>
+          <label xml:lang="fr">* Recherche avec lien vers facette</label>
+      </template>
+    </templates>
+    
+    <templates type="Incident">
+      <template name="default" file="doIncidentResultDisplay.jsp" usage='query'>
+          <label xml:lang="fr">* Gabarit Incident</label>
+      </template>
+      <template name="default" file="doIncidentFullDisplay.jsp" usage='full'>
+          <label xml:lang="fr">* Gabarit Incident</label>
+      </template>
+    </templates>
+    
+    <templates type="InterventionPlanifiee">
+      <template name="default" file="doInterventionPlanifieeResultDisplay.jsp" usage='query'>
+          <label xml:lang="fr">* Gabarit Intervention Planifiée</label>
+      </template>
+      <template name="default" file="doInterventionPlanifieeFullDisplay.jsp" usage='full'>
+          <label xml:lang="fr">* Gabarit Intervention Planifiée</label>
+      </template>
+    </templates>
+	    
+	<templates type="Alerte">
+      <template name="default" file="doAlerteResultDisplay.jsp" usage='query'>
+          <label xml:lang="fr">* Gabarit Alerte</label>
+      </template>
+      <template name="default" file="doAlerteFullDisplay.jsp" usage='full'>
+          <label xml:lang="fr">* Gabarit Alerte</label>
+      </template>
+    </templates>
+    
+    <templates type="Information">
+      <template name="default" file="doInformationResultDisplay.jsp" usage='query'>
+          <label xml:lang="fr">* Gabarit Information</label>
+      </template>
+      <template name="default" file="doInformationFullDisplay.jsp" usage='full'>
+          <label xml:lang="fr">* Gabarit Information</label>
+      </template>
+    </templates>
+    
+     <templates type="PortletCalendar">
+        <template name="listeCourte" file="doPortletCalendarListeCourteDisplay.jsp" usage='box'>
+          <label xml:lang="fr">* Liste courte</label>
+        </template>
+     </templates>
+     
+     <templates type="CalendarEvent">
+        <template name="default" file="doCalendarEventFullDisplay.jsp" usage='full'>
+           <label xml:lang="en">Default template</label>
+           <label xml:lang="fr">Gabarit par défaut</label>
+        </template>
+     </templates>     
+	    
+  </types>
+  
+  
+  <workflows>
+    <workflow id="workflow_alerte" />
+    <workflow id="workflow_incident" />
+    <workflow id="workflow_intervention_planifiee" />
+  </workflows>
+  <!--
+  <jars>
+    <jar path="sentry-1.7.12.jar" />
+    <jar path="sentry-log4j-1.7.12.jar" />
+  </jars>
+  -->
+    
+  <java-classes>
+  	<java package="fr.cg44.plugin.intraneteditorial" />
+  	<java package="fr.cg44.plugin.googlemapsplus" />
+  </java-classes>
+  
+  <plugincomponents> 
+    <datacontroller class="fr.cg44.plugin.intraneteditorial.datacontroller.PublicationDataController" types="Publication" />
+    <datacontroller class="fr.cg44.plugin.intraneteditorial.datacontroller.PublicationCGDataController" types="PublicationCG" />
+    <datacontroller class="fr.cg44.plugin.intraneteditorial.datacontroller.AvpDataController" types="AVP" />
+    <datacontroller class="fr.cg44.plugin.intraneteditorial.datacontroller.DepecheDataController" types="Incident InterventionPlanifiee" />
+    <!--<channellistener class="fr.cg44.plugin.intraneteditorial.channellistener.SentryChannelListener" />-->
+    <queryfilter class="fr.cg44.plugin.intraneteditorial.queryfilter.SearchQueryFilter" />
+  </plugincomponents>
+ 
+  <private-files>
+    <directory path="properties" />
+  </private-files>
+  <public-files>
+    <directory path="js" />
+    <directory path="css" />
+    <directory path="docs" />
+    <directory path="jsp" />
+    <directory path="images" />
+    <directory path="types" />
+    <file path="jsp/google/analyseHeader.jsp" include="EMPTY_HEADER" />
+    <file path="jsp/google/analyseBody.jsp" include="EMPTY_HEADER_BODY_START" />  
+    <file path="jsp/satelliteMobilite/importAVP/importAVPLink.jsp" include="ADMIN_OPERATION" />
+    <file path="types/CalendarEvent/blocAvantCarte.jsp" include="CALENDAREVENT_FULLDISPLAY_RIGHT_BEFORE"/>
+  </public-files>
+  
+  <webapp-files>
+  	<file path="/types/AVP/doEditAVP.jsp" />
+  	<file path="/types/AVPImport/doEditAVPImport.jsp" />
+    <file path="/plugins/CalendarPlugin/jsp/fulldisplay/doCalendarEventFullDisplayUpper.jspf"/>
+    <file path="/plugins/CalendarPlugin/jsp/sidebar/doSidebarEvents.jsp"/>  	
+  </webapp-files>
+</plugin>
+

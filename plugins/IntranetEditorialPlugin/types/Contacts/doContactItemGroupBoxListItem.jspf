@@ -1,0 +1,15 @@
+<%
+  DescriptionGroupe descriptionGroupe = Util.getFirst(itGroup.getLinkIndexedDataSet(DescriptionGroupe.class)); 
+  String groupeVignette = ""; 
+  if(Util.notEmpty(descriptionGroupe)) {
+      groupeVignette = descriptionGroupe.getVignetteGroupe();
+  }
+%>
+
+<div class="media br">
+  <jalios:thumbnail css="wrapper-photo pull-left" path='<%= groupeVignette %>' height="80" width="80">
+  	  <jalios:thumbnail css="wrapper-photo pull-left" path='<%= "plugins/IntranetVisualIdentityPlugin/images/icon/personnages_contacts.png" %>' height="80" width="80" />
+  </jalios:thumbnail>
+  <jalios:link css="name" id="$plugin.intranetsocial.description.group.cat" params='<%="gid=" + itGroup.getId() %>'> <%= itGroup.getName() %></jalios:link>                   
+  <% if (Util.notEmpty(itGroup.getExtraData("extra.Group.jcmsplugin.contact.email"))) { %><div class="mail"><a title="<%= glp("ui.adm.mn.mail.send") %>" href='mailto:<%= encodeForHTMLAttribute(itGroup.getExtraData("extra.Group.jcmsplugin.contact.email")) %>'> <%= itGroup.getExtraData("extra.Group.jcmsplugin.contact.email") %></a></div><% } %>              
+</div> 

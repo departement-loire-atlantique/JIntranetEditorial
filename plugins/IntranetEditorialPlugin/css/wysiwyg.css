@@ -1,0 +1,13 @@
+.wysiwyg .full-default {
+  background-color: #ffffcc;
+  border: 1px dotted #cc0000;
+  font-size: 12px;
+  padding: 5px;
+}
+.wysiwyg .full-embed {
+  background-color: #ffffcc;
+  border: 1px dotted #00cc00;
+  font-size: 12px;
+  padding: 5px;
+}
+/*# sourceMappingURL=embeddedmediawysiwyg.css.map */

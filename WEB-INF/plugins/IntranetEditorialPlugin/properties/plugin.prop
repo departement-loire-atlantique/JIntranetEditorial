@@ -1,0 +1,89 @@
+# Type de contenu Document avec vignette et Type de contenu Carte
+$id.jcmsplugin.intranetEditorial.document.theme.categories: 	t1_5096
+$id.jcmsplugin.intranetEditorial.carte.cartographie.categories: t1_5097
+
+# Résolution de portail
+$id.jcmsplugin.intraneteditorial.fulldisplay.portal:				p2_26216
+$id.jcmsplugin.intraneteditorial.root.section.categories:			j_5
+jcmsplugin.intraneteditorial.fulldisplay.type:						Article SmallNews
+
+# Site sat "Mobilité"
+$id.jcmsplugin.intraneteditorial.parcoursMetier.cat: p1_58378
+$id.jcmsplugin.intraneteditorial.parcoursMetierAssocies.portlet: p1_97419
+$id.jcmsplugin.intraneteditorial.focusListeParcoursMetier.id: p2_107235
+jcmsplugin.intraneteditorial.avp.lienformulairecandidatureagentscolleges: https://asp-loire-atlantique.sphinxonline.net/SurveyServer/s/drh/SOUHAITS_MOBILITE2019/souhaits2019college.htm
+
+# Jmag groupe veilleur
+$id.jcmsplugin.intraneteditorial.jmag.veilleur.documentation.group: p1_6960
+$id.jcmsplugin.intraneteditorial.jmag.veilleur.innovation.group: p1_6179
+$id.jcmsplugin.intraneteditorial.jmag.veilleur.contentieux.group: p1_7100
+
+# Planet numérique : météo
+$id.jcmsplugin.intraneteditorial.depeche.incident.majeur: p2_196933
+$id.jcmsplugin.intraneteditorial.depeche.formule.portlet: p2_196942
+
+
+# ------------------------------------------------------------
+#  Wysiwyg
+# ------------------------------------------------------------
+channel.forbidden-html: (javascript:)|(<\\s*(link))|(</\\s*body)
+wysiwyg.custom.configuration.charte: /WEB-INF/plugins/IntranetEditorialPlugin/wysiwyg/configuration-charte.conf
+wysiwyg.additional.configuration.styles: /WEB-INF/plugins/IntranetEditorialPlugin/wysiwyg/configuration-styles.conf
+wysiwyg.plugins.dsicons: plugins/SoclePlugin/wysiwyg/plugins/dsicons/plugin.js 
+
+wysiwyg.sanitize-html.whitelist.default.tags:\
+  a[class|style|id|href|title|rel|name|hreflang|target],\
+  script[src|async|defer|type|charset],\
+  abbr[class|style|id|title],\
+  acronym[class|style|id|title],\
+  address,\
+  b,\
+  blockquote[class|style|id|cite],\
+  button[class|type|title],\
+  br,\
+  caption,\
+  cite,\
+  code,\
+  col[class|span|width],\
+  colgroup[class|span|width],\
+  dd,\
+  div[class|style|id|title|lang|dir],\
+  dl,\
+  dt,\
+  em,\
+  h1[class|style|id|role],\
+  h2[class|style|id|role],\
+  h3[class|style|id|role],\
+  h4[class|style|id|role],\
+  h5[class|style|id|role],\
+  h6[class|style|id|role],\
+  hr,\
+  i[class|style|aria-hidden],\
+  img[class|style|align|alt|height|src|title|width],\
+  input[id|type|name|required|class|placeholder|style],\
+  li[class|style|id],\
+  ol[class|style|id|start|type],\
+  p[class|style|id|title|lang|dir|role|aria-level],\
+  picture[class],\
+  pre[class|style|id|lang|dir],\
+  q[cite],\
+  section[class|style],\
+  small,\
+  span[class|style|id|title|lang|dir],\
+  s[class|style|id],\
+  strike[class|style|id],\
+  strong[class|style|id],\
+  sub,\
+  sup,\
+  table[class|style|id|border|cellspacing|cellpadding|summary|width|align|valign],\
+  tbody,\
+  td[class|style|id|colspan|rowspan|width|align|valign],\
+  tfoot,\
+  th[class|style|id|colspan|rowspan|width|align|valign],\
+  thead,\
+  tr[class|style|id|align|valign],\
+  tt,\
+  u,\
+  ul[class|style|id|type]
+
+wysiwyg.sanitize-html.whitelist.iframe.enabled: true

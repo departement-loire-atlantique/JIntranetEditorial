@@ -1,0 +1,48 @@
+<!-- Liste de contacts -->
+<jalios:if predicate="<%= Util.notEmpty(pub.getTitreListeDeContacts()) && (Util.notEmpty(pub.getContactsAgents()) || Util.notEmpty(pub.getContactsUniteOrga()) || Util.notEmpty(pub.getContacts()) ||  Util.notEmpty(pub.getComplementContacts())) %>">      
+    <section class="flat-color flatColorSkin">
+	    <div class='skinHeader'>
+		    <%-- Affichage du titre --%>
+            <h1><%= pub.getTitreListeDeContacts()%> <jalios:edit id="<%= pub.getId() %>" fields="titreListeDeContacts ; listeDeContacts" /> </h1>		 
+		</div>	
+	    <div class="skinContent">
+	       <div class="pqf-contacts">
+	       
+	          <%-- MEMBRES --%>
+	          <jalios:if predicate="<%= Util.notEmpty(pub.getContactsAgents()) %>">
+			      <jalios:foreach name="itMember" array="<%= pub.getContactsAgents() %>" type="Member">
+				     <jalios:if predicate="<%= Util.notEmpty(itMember) %>">
+			            <%@ include file="../../types/Contacts/doContactItemBoxListItem.jspf" %>
+			         </jalios:if> 
+			      </jalios:foreach>
+		      </jalios:if>
+		      
+		      
+		      <%-- GROUPES --%>
+		      <jalios:if predicate="<%= Util.notEmpty(pub.getContactsUniteOrga()) %>">
+                  <jalios:foreach name="itGroup" array="<%= pub.getContactsUniteOrga() %>" type="Group">
+                     <jalios:if predicate="<%= Util.notEmpty(itGroup) %>">                      				          
+				        <%@ include file="../../types/Contacts/doContactItemGroupBoxListItem.jspf" %>				                                                            
+                     </jalios:if> 
+                  </jalios:foreach>
+              </jalios:if>
+              
+              
+              <%-- CONTACTS --%>
+              <jalios:if predicate="<%= Util.notEmpty(pub.getContacts()) %>">
+                  <jalios:foreach name="itContact" array="<%= pub.getContacts() %>" type="Contacts">
+                     <jalios:if predicate="<%= Util.notEmpty(itContact) %>">                                            
+                          <% Contacts obj = (Contacts) itContact; %>  
+                          <%@ include file="../../types/Contacts/doContactsList.jspf" %>                                                  
+                     </jalios:if> 
+                  </jalios:foreach>
+              </jalios:if>
+		      
+		      <jalios:if predicate="<%= Util.notEmpty(pub.getComplementContacts()) %>">	  
+              	<jalios:wysiwyg><%= pub.getComplementContacts() %></jalios:wysiwyg>
+              </jalios:if>
+                                  
+            </div>
+	    </div>      
+    </section>               
+</jalios:if>

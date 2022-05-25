@@ -1,0 +1,16 @@
+<%@page import="fr.cg44.plugin.intranetvisualidentity.util.AnnuaireUtil"%>
+
+<div class="media br">
+	<jalios:memberphoto css="pull-left photo-part" member="<%= itMember %>" size="<%= PhotoSize.SMALL %>" showStatus="<%= false %>" />
+	<div class="media-body">
+	  <jalios:link data="<%= itMember %>" css="name"><%= itMember.getName() %> <%= itMember.getFirstName() %> </jalios:link>
+	  <div class="details">
+	    <% if (Util.notEmpty(AnnuaireUtil.renvoieGroupeFromUo(itMember))) { %><div class="jobtitle"><%= AnnuaireUtil.renvoieGroupeFromUo(itMember) %></div><% } %>
+	    <div class="phones">
+	       <% if (Util.notEmpty(itMember.getEmail())) { %><a class="mail" title="<%= glp("ui.adm.mn.mail.send") %>" href='mailto:<%= encodeForHTMLAttribute(itMember.getEmail()) %>'> <%= itMember.getEmail() %></a><% } %>     	    
+	       <% if (Util.notEmpty(itMember.getPhone())) { %><div class="phone" title="<%= glp("ui.adm.mbr-edit.lbl.phone") %>"> <jalios:icon src="telephone" /> <%= AnnuaireUtil.getFormattedTel(itMember.getPhone()) %> </div><% } %>
+	       <% if (Util.notEmpty(itMember.getMobile())) { %><div class="mobile" title="<%= glp("ui.adm.mbr-edit.lbl.mobile") %>"> <jalios:icon src="phone" /> <%=  AnnuaireUtil.getFormattedTel(itMember.getMobile()) %> </div><% } %>
+	   </div>
+	  </div>
+  </div>
+</div>

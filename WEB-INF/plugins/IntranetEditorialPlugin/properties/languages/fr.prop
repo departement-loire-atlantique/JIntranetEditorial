@@ -1,0 +1,46 @@
+
+# Résolution de portail
+$id.jcmsplugin.intraneteditorial.root.section.categories:			Id de la catégorie servant de racine de section
+$id.jcmsplugin.intraneteditorial.fulldisplay.portal: 				Id du portail servant pour le full display une colonne
+jcmsplugin.intraneteditorial.fulldisplay.type: 						Types utilisant le portail une colonne
+
+# Renome les types natifs
+types.WebPage.label: Site internet
+
+# AVP
+jcmsplugin.intranetEditorial.avp.poste:                             N° de poste
+jcmsplugin.intranetEditorial.avp.depot:                             Date limite de dépôt
+jcmsplugin.intranetEditorial.avp.position:                          Position hiérarchique
+jcmsplugin.intranetEditorial.avp.rattachement:                      Rattachement
+jcmsplugin.intranetEditorial.avp.lieu:                              Lieu de travail
+jcmsplugin.intraneteditorial.avp.lienformulairecandidatureagentscolleges : URL formulaire candidature AVP Agents des collèges
+jcmsplugin.intranetEditorial.avp.rifseep : Groupe fonction RIFSEEP
+
+# Fiche formation
+jcmsplugin.intranetEditorial.ficheformation.contact:                {0,choice,1# Contact pédagogique|2# Contacts pédagogiques}
+jcmsplugin.intranetEditorial.ficheformation.photo:                  {0,choice,1# En image|2# En images}
+jcmsplugin.intranetEditorial.ficheformation.video:                  {0,choice,1# En vidéo|2# En vidéos}
+jcmsplugin.intranetEditorial.ficheformation.document:               {0,choice,1# Document utile|2# Documents utiles}
+
+
+# Publication du Département
+jcmsplugin.intranetEditorial.pubcg.page:                            pages
+jcmsplugin.intranetEditorial.pubcg.telecharger:                     Télécharger le document
+jcmsplugin.intranetEditorial.pubcg.feuilleter:                      Feuilleter le document
+jcmsplugin.intranetEditorial.pubcg.papier:                          Pour obtenir une version papier de ce document, voir les contacts associés.
+
+# Carte
+jcmsplugin.intranetEditorial.carte.telecharger:                     Télécharger la carte 
+jcmsplugin.intranetEditorial.carte.atlas:                           Voir la carte dans l’atlas
+
+# Planete numérique
+jcmsplugin.intranetEditorial.numerique.concernes.lbl: 				Sont concernés
+jcmsplugin.intranetEditorial.numerique.destinataires.lbl: 			Destinataires
+
+jcmsplugin.intranetEditorial.numerique.services.operationnel.lbl: 		<span class="bold">Tous les<br/>services sont<br/></span>opérationnels
+jcmsplugin.intranetEditorial.numerique.services.operationnel-sauf.lbl: 	<span class="bold">Incident(s)<br/></span> en cours
+jcmsplugin.intranetEditorial.numerique.services.panne.lbl: 				<span class="bold">Incident(s)<br/></span>majeur(s) en cours
+
+workflows.workflow_alerte.states.10.label:Expiré
+workflows.workflow_incident.states.10.Expiré
+workflows.workflow_intervention_planifiee.states.10.label:Expiré

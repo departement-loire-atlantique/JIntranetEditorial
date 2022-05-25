@@ -1,0 +1,44 @@
+<%-- Affiche les parcours métiers associés 
+Ce fichier est appelé via une portlet JSP qui elle-même est appelée par les gabarits FullDisplay
+des types "FicheMetier" et "FicheFormation"
+
+L'objet récupéré est donc soit de type FicheFormation soit FicheMetier
+
+--%>
+<%
+Category catParcoursFormation = channel.getCategory("$id.jcmsplugin.intraneteditorial.parcoursMetier.cat");
+
+// On récupère les parcours de formation : juste le premier niveau de catégories de la branche "Parcours de formation"
+Set catParcoursFormationSet = catParcoursFormation.getChildrenSet();
+
+// On initialise le Set qui nous servira pour l'affichage des parcours en ordre alpha
+Set catParcoursFormationAssociesSet = new TreeSet(Category.getOrderComparator(userLang));
+%>
+<jalios:select>
+	<jalios:if predicate="<%= Util.notEmpty(obj.getParcoursAssocie(loggedMember)) %>">
+			<div class="skinContent parcoursFormation">
+				<div class="pqf-simple-list">
+					<ul class="item-box-list item-box-simple-list">
+					
+						<%-- On va chercher les parcours de formation --%>
+						<jalios:foreach collection="<%= obj.getParcoursAssocie(loggedMember) %>" type="Category" name="itCategory">
+							<%
+							List ancestorList = itCategory.getAncestorList(catParcoursFormation, true);
+							ancestorList.add(itCategory);
+							ancestorList.retainAll(catParcoursFormationSet);
+							catParcoursFormationAssociesSet.add(ancestorList.get(0));
+							%>
+						</jalios:foreach>	
+						
+						<%-- On affiche les parcours de formation --%>	
+						<jalios:foreach collection="<%= catParcoursFormationAssociesSet %>" type="Category" name="itParcours">
+							<li class=""><jalios:link data="<%=itParcours%>"><%=itParcours%></jalios:link></li>
+						</jalios:foreach>
+				</div>
+			</div>
+	
+	</jalios:if>
+	<jalios:default>
+	<%  request.setAttribute("ShowPortalElement", Boolean.FALSE);%>
+	</jalios:default>
+</jalios:select>
