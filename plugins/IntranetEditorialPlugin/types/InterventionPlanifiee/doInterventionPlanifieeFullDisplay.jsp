@@ -16,7 +16,7 @@
  
     
 <h1 class="main-title">
-    <%= obj.getTitle() %> - <%= obj.getWFStateLabel(userLang) %> 
+    <%= obj.getTitle() %> 
     <span style="margin-left: 25px">
         <jalios:icon src="glyph:icomoon-wrench" htmlAttributes="style='font-size:40px;'"/>
     </span>  

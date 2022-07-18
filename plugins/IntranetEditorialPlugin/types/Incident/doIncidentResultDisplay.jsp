@@ -38,11 +38,6 @@ Category incidentMajeurCat = channel.getCategory("$id.jcmsplugin.intraneteditori
 	   
 	   <jalios:edit data="<%= obj %>" />
 	   
-	   <%-- Statut --%>
-       <div class="sub-info">
-            <%= obj.getWFStateLabel(userLang) %>
-       </div>
-	     
 	</div>
 	
 	<div class="clear"></div>

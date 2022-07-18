@@ -27,16 +27,6 @@
 	   
 	   <jalios:edit data="<%= obj %>" />
 	   
-	   <%-- Statut --%>
-       <div class="sub-info">
-            <jalios:select>
-                <%-- statut non vide --%>
-                <jalios:if predicate="<%= obj.getPstatus() != -15 %>">
-                    <%= obj.getWFStateLabel(userLang) %>
-                </jalios:if>             
-            </jalios:select>
-       </div>
-	     
 	</div>
 	
 	<div class="clear"></div>

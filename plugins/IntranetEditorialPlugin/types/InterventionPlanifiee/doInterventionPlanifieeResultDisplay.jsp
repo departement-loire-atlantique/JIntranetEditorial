@@ -32,11 +32,11 @@
             <jalios:select>
                 <%-- A venir --%>
                 <jalios:if predicate="<%= obj.getPstatus() == -11 %>">
-                    <%= obj.getWFStateLabel(userLang) %> le <jalios:date  format="dd/MM/yyyy HH:mm" date="<%= obj.getDateDeDebut() %>" />
+                    le <jalios:date  format="dd/MM/yyyy HH:mm" date="<%= obj.getDateDeDebut() %>" />
                 </jalios:if>
                 <%-- En cours --%>
                 <jalios:if predicate="<%= obj.getPstatus() == 1 %>">
-                    <%= obj.getWFStateLabel(userLang) %> : Fin prévisionnelle : <jalios:date  format="dd/MM/yyyy HH:mm" date="<%= obj.getDateDeFin() %>" />
+                    Fin prévisionnelle : <jalios:date  format="dd/MM/yyyy HH:mm" date="<%= obj.getDateDeFin() %>" />
                 </jalios:if>
             </jalios:select>
        </div>

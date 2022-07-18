@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plugin PUBLIC "-//JALIOS//DTD JCMS-PLUGIN 1.6//EN" "http://jade/jcms/dtd/jcms-plugin-1.6.dtd">
-<plugin name="IntranetEditorialPlugin" version="0.1" author="CG44" license="CG44" initialize="true" jcms="" order="0" url="" jsync="true" appserver="">
-<!-- test -->
+<plugin name="IntranetEditorialPlugin" version="1.0" author="CG44" license="CG44" initialize="true" jcms="" order="0" url="" jsync="true" appserver="">
+
   <label xml:lang="fr">Editorial</label>
   <description xml:lang="fr">Types de contenu liés à l’éditorial (brèves, articles, avis de vacances de postes, …) + gabarits full, query, bloc, result, embed&#xD;
 Brèves + article + full policy filter.</description>
 
- 
   <types>
     <type name="Alerte" />
     <type name="Article" />

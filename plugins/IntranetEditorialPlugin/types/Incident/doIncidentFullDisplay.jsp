@@ -16,7 +16,7 @@
  
     
 <h1 class="main-title">
-	<%= obj.getTitle() %> - <%= obj.getWFStateLabel(userLang) %> 
+	<%= obj.getTitle() %> 
 	<span style="margin-left: 25px">
 		<jalios:select>
 			<jalios:if predicate="<%= JcmsUtil.isSameId(obj.getFirstTypeDincident(loggedMember), incidentMajeurCat) %>">
